@@ -10,10 +10,10 @@ The testing results for different task is shown below:<br/>
 ### arrayCompute
 * netCDF4 data loading
 * array manipulation and computing
-<br/>
-Timing: :clock1030:
+<br>
+Timing: :clock1030: <br/>
 * python 25.646 seconds
 * java
 * c++
-
+<br>
 
