@@ -8,12 +8,15 @@ This repositary contains multiple testing tasks and therefore its whole structur
 ## Overview :golf:
 The testing results for different task is shown below:<br/>
 ### arrayCompute <br/>
+
 * netCDF4 data loading
 * array manipulation and computing
-<br/>
-Timing: :clock1030: <br/>
+
+Timing: :clock1030:
+
 * python 25.646 seconds
 * java
 * c++
+
 <br/>
 
