@@ -5,12 +5,12 @@ Benchmark of data processing speed for major programming languages. This reposit
 This repositary contains multiple testing tasks and therefore its whole structure is task specified. In each task folder you will find the testing scripts using different languages:<br/>
 * `arrayCompute` Testing array manipulation speed
 
-## Overview :file_folder:
+## Overview :golf:
 The testing results for different task is shown below:<br/>
 ### `arrayCompute`
 * netCDF4 data loading
 * array manipulation and computing
-Timing:<br/>
+Timing: :clock1030:
 * python 25.646 seconds
 * java
 * c++
