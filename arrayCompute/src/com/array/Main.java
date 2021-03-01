@@ -11,11 +11,11 @@ Copyright Netherlands eScience Center
 Function      : Extract Meteorological fields from MERRA2 and array manipulation
 Author        : Yang Liu (y.liu@esciencecenter.nl)
 First Built   : 2020.07.03
-Last Update   : 2020.07.03
+Last Update   : 2020.09.03
 Contributor   :
 Description   : This module aims to test the speed of input file loading (standard netCDF
                 files) and array manipulation. It conducts quantification of meridional
-                energy transport
+                energy transport.
                 The sample data is downloaded directly from online data system of NASA,
                 namely MERRA2. MERRA2 is a state-of-the-art atmosphere reanalysis product
                 produced by NASA. It spans from 1980 to 2017. Natively it is generated on
@@ -41,6 +41,15 @@ Caveat!       : This module is designed to work with a batch of files. Hence, th
 // ######################    Units vacabulory    ######################
 // cpT:  [J / kg K] * [K]     = [J / kg]
 // Lvq:  [J / kg] * [kg / kg] = [J / kg]
+// gz is [m2 / s2] = [ kg m2 / kg s2 ] = [J / kg]
+
+// multiply by v: [J / kg] * [m / s] => [J m / kg s]
+// sum over longitudes [J m / kg s] * [ m ] = [J m2 / kg s]
+
+// integrate over pressure: dp: [Pa] = [N m-2] = [kg m2 s-2 m-2] = [kg s-2]
+// [J m2 / kg s] * [Pa] = [J m2 / kg s] * [kg / s2] = [J m2 / s3]
+// and factor 1/g: [J m2 / s3] * [s2 /m2] = [J / s] = [Wat]
+// ########################################################
 
 class MERRA2 {
     /*
@@ -86,7 +95,11 @@ class MERRA2 {
             1.000000e-02};
 
     // reverse A
-
+        for(int i = 0; i < A.length/2; i++) {
+        double temp = A[i];
+        A[i] = A[A.length - i - 1];
+        A[A.length - i - 1] = temp;
+    }
 
     final double[] B = {
             1.000000e+00, 9.849520e-01, 9.634060e-01, 9.418650e-01, 9.203870e-01, 8.989080e-01,
